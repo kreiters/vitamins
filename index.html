@@ -144,7 +144,7 @@
                 margin: auto;
             }
 
-            .topics, .months{
+            .topics, .days, .months{
                 position: relative;
                 display: flex;
                 justify-content: space-around;
@@ -155,12 +155,16 @@
             .topics{
                 right: 550px;
             }
-
+            
+            .days{
+                left: 500px;
+            }
+            
             .months{
                 left: 450px;
             }
 
-            .topics ul, .months ul{
+            .topics ul, .days ul, .months ul{
                 position: absolute;
                 background: white;
                 margin-top: 10vh;
@@ -179,7 +183,7 @@
                 box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
             }
 
-            .topics li, .months li{
+            .topics li, .days li, .months li{
                 
                 width: 100%;
                 height: 100%;
@@ -188,11 +192,11 @@
                 align-items: center;
             }
 
-            .topics li:hover, .months li:hover{
+            .topics li:hover, .days li:hover, .months li:hover{
                 background-color: #a8f0f7;
             }
 
-            .topics a, .months a{
+            .topics a, .days a, .months a{
                 color: black;
                 text-decoration: none;
             }
@@ -210,6 +214,12 @@
                 opacity: 1;
                 pointer-events: all;
             }
+            
+            .days button:focus + ul{
+                opacity: 1;
+                pointer-events: all;
+            }
+
 
             .months button:focus + ul{
                 opacity: 1;
@@ -262,7 +272,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="topics">
+                        <div class="days">
                             <button>Day of the week</button>
                             <ul>
                                 <li>
