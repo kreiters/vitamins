@@ -104,7 +104,7 @@ img{
 
     .open{
         
-        transform: rotate(-180deg);/*open up if phone*/
+        transform: rotateX(-180deg);/*open up if phone*/
         
     }
     #mirrorText{
