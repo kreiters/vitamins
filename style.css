@@ -103,7 +103,9 @@ img{
     }
 
     .open{
-        transform: rotateX(-180deg);/*open up if phone*/
+        display: inline-block;
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);/*open up if phone*/
         
     }
     #mirrorText{
