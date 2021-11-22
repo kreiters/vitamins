@@ -1,0 +1,318 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    user-select: none;
+}
+p{
+    margin-top: 10px;
+    font-size: 22px;
+    text-align: center;
+    line-height: .9;
+}
+
+h1{
+    text-align: center;
+    line-height: .9;
+}
+
+h2{
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+}
+img{
+    width: 20%;
+    height: 50%;
+    margin-top: 5px;
+}
+.container, .book-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background: #2d6f75;
+    overflow: hidden;
+}
+.book-content{
+    /*width: 50%;*/
+    min-width: 580px;
+    /*max-width: 1200px;*/
+    height: 290px;
+    position: relative;
+    perspective: 1000px;
+    transition: .5s;
+
+}
+.book{
+    position: absolute;
+    width: 85%;
+    height: 80%;
+    transition: .5s;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    margin-left: 5.59%;
+
+}
+.open{
+    transform: rotateY(-180deg);/*open left if desktop*/
+}
+@media screen and (max-width: 430px){
+    p{
+        font-size: 12px;
+        line-height: .9;
+    }
+    h1{
+        font-size: 14px;
+        line-height: .9;
+    }
+    .book{
+        position: absolute;
+        width: 60%;
+        height: 50%;
+        /*transition: .5s;
+        transform-style: preserve-3d;*/
+        transform-origin: top;
+    }
+    img{
+        width: 20%;
+        height: 55%;
+        margin-top: 5px;
+    }
+    .trnsf{
+        transform: translateX(0px);
+    }
+    .trnsf-reset{
+        transform: translateX(0px);
+    }
+    
+    .trnsf-back{
+        transform: translateX(0px);
+    }
+    .face-back{
+        
+        /*transform: rotateZ(180deg);/*flips order*/
+        /*transform: rotateZ(0deg);
+        transform: rotateY(180deg);*/
+    }
+
+    .open{
+        transform: rotateX(-180deg);/*open up if phone*/
+        
+    }
+    #mirrorText{
+        
+        /*transform: rotateZ(180deg);*//*reverses order*/
+        /*transform: rotateX(180deg);*/
+        /*transform: rotateY(180deg);*/
+        
+    }
+    #front-back-rev{
+        /*display: inline-block;
+        transform: matrix(-1, 0, 0, -1, 0, 0);*/
+        transform: rotate(180deg);
+        
+    }
+    .quote-title{
+        position: absolute;
+        left: 44%;
+        text-align: center;
+        margin-bottom: 10px;
+        top: -65px;
+    }
+    .quote-paragraph{
+        position: absolute;
+        margin-left: 5%;
+        top: -55px;
+        height: 67px;
+        width: 90%;
+        overflow-y: scroll;
+    }
+    .quote-author{
+        position: absolute;
+        left: 30%;
+        top: 25px;
+    }
+}
+.face-front, .face-back{
+    width: 90%;
+    height: 90%;
+    background: white;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 15%/50%;
+    cursor: pointer;
+}
+.face-front{
+    box-shadow: inset 3px 0px 20px -7px black;
+    /*border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;*/
+}
+.face-back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateZ(-1px) rotateY(180deg);
+    box-shadow: inset -3px 1px 20px -7px black;
+    /*border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;*/
+}
+#front{
+    position: relative;
+    top:0;
+    left: 0;
+    text-align: center;
+    background-image: url('sword.jpg');
+    background-size: 30%;
+    background-repeat: no-repeat;
+    border-radius: 15%/50%;
+    cursor: pointer;
+}
+#front-back{
+    /*background: url('../img/frontBack.jpg');*/
+    background: rgb(221, 216, 211);
+    border-radius: 15%/50%;
+    cursor: pointer;
+}
+#front, #front-back{
+    background-size: 30%;
+    background: rgb(221, 216, 211);
+}
+
+/* Clases que se agregaran con Javascript */
+@media screen and (min-width: 480px){
+    .book{
+        margin-left: 10%;
+    
+    }
+    .trnsf{
+        transform: translateX(250px);/*was 280px;*/
+    }
+    .trnsf-reset{
+        transform: translateX(0px);
+    }
+
+    .trnsf-back{
+        transform: translateX(500px);/*was 580px;*/
+    }
+    .quote-title{
+        position: absolute;
+        margin-left: 35%;
+        margin-right: auto;
+        text-align: center;
+        margin-bottom: 10px;
+        top: 5px;
+    }
+    .quote-paragraph{
+        position: absolute;
+        margin-left: 5%;
+        top: 25px;
+        height: 60%;
+        width: 85%;
+        overflow-y: scroll;
+    }
+    .quote-author{
+        position: absolute;
+        margin-left: 35%;
+        top: 165px;
+    }
+    
+}
+
+
+.navBar{
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    align-items: center;
+    top: 0;
+    width: 100%;
+}
+
+.dropdown{
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+}
+
+.topics, .months{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: auto;
+}
+
+.topics{
+    right: 550px;
+}
+
+.months{
+    left: 450px;
+}
+
+.topics ul, .months ul{
+    position: absolute;
+    background: white;
+    margin-top: 10vh;
+    width: 200px;
+    height: 600px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: all .4s ease;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+}
+
+.topics li, .months li{
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topics li:hover, .months li:hover{
+    background-color: #a8f0f7;
+}
+
+.topics a, .months a{
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown button{
+    background: none;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.topics button:focus + ul{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.months button:focus + ul{
+    opacity: 1;
+    pointer-events: all;
+}
