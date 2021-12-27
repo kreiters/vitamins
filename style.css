@@ -64,6 +64,12 @@ img{
     transform: rotateY(-180deg);/*open left if desktop*/
 }
 @media screen and (max-width: 430px){
+    .container{
+    width: 100vw;
+    height: 100vh;
+    background: #2d6f75;
+    overflow: hidden;
+    }
     p{
         font-size: 12px;
         line-height: .9;
