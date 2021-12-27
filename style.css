@@ -42,7 +42,7 @@ img{
 }
 .book-content{
     /*width: 50%;*/
-    min-width: 580px;
+    min-width: 480px;
     /*max-width: 1200px;*/
     height: 290px;
     position: relative;
