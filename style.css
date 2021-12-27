@@ -65,7 +65,7 @@ img{
 }
 @media screen and (max-width: 430px){
     .container{
-    width: 300px;
+    width: 280px;
     height: 100vh;
     background: #2d6f75;
     overflow: hidden;
