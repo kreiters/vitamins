@@ -3,6 +3,7 @@
     margin: 0;
     font-family: sans-serif;
     user-select: none;
+    box-sizing: border-box;
 }
 p{
     margin-top: 10px;
@@ -63,13 +64,19 @@ img{
 .open{
     transform: rotateY(-180deg);/*open left if desktop*/
 }
+.small-quote{/*if quote is lees than 190 characters*/
+    position: absolute;
+    margin-left: 2%;
+    top: 30px;
+    height: 67px;
+    width: 90%;
+    /*overflow-y: scroll;*/
+}
+
+/*================================phone form factor===================================*/
+/*stays centered and opens up/closes down*/
+
 @media screen and (max-width: 430px){
-    .container{
-    width: 480px;
-    height: 100vh;
-    background: #2d6f75;
-    overflow: hidden;
-    }
     p{
         font-size: 12px;
         line-height: .9;
@@ -86,6 +93,7 @@ img{
         transform-style: preserve-3d;*/
         transform-origin: top;
     }
+    
     img{
         width: 20%;
         height: 55%;
@@ -109,7 +117,9 @@ img{
     }
 
     .open{
-        transform: rotateX(-180deg);/*open up if phone*/
+        -webkit-transform: rotateX(-179deg);
+        -moz-transform: rotateX(-179deg);
+        transform: rotateX(-179deg);/*open up if phone*/
         
     }
     #mirrorText{
@@ -145,6 +155,14 @@ img{
         position: absolute;
         left: 30%;
         top: 25px;
+    }
+    .small-quote{/*if quote is lees than 190 characters*/
+        position: absolute;
+        margin-left: 4%;
+        top: -55px;
+        height: 67px;
+        width: 90%;
+        /*overflow-y: scroll;*/
     }
 }
 .face-front, .face-back{
@@ -193,12 +211,76 @@ img{
     background: rgb(221, 216, 211);
 }
 
-/* Clases que se agregaran con Javascript */
-@media screen and (min-width: 480px){
+/*===================tablet form factor=================== */
+/*stays centered and opens up/closes down*/
+
+@media screen and (min-width: 431px) and (max-width: 959px) {
+    .open{
+        -webkit-transform: rotateX(-179deg);
+        -moz-transform: rotateX(-179deg);
+        transform: rotateX(-179deg);/*open up if phone or tablet*/
+    }
     .book{
+        margin-left: 10%;
+        transform-origin: top;
+    }
+    #front-back-rev{
+        /*display: inline-block;*/
+        /*transform: matrix(-1, 0, 0, -1, 0, 0);*/
+        /*-webkit-transform: rotate(-180deg);*/
+        transform: rotate(-180deg);
+    }
+/*these classes are added by the Javascript*/
+    .trnsf{
+        transform: translateX(0px);/*was 200px;*/
+    }
+    .trnsf-reset{
+        transform: translateX(0px);
+    }
+
+    .trnsf-back{
+        transform: translateX(0px);/*was 500px;*/
+    }
+    .quote-title{
+        position: absolute;
+        margin-left: 35%;
+        margin-right: auto;
+        text-align: center;
+        margin-bottom: 10px;
+        top: -135px;
+    }
+    .quote-paragraph{
+        position: absolute;
+        margin-left: 5%;
+        top: 25px;
+        height: 60%;
+        width: 85%;
+        overflow-y: scroll;
+    }
+    .small-quote{/*if quote is lees than 190 characters*/
+        position: absolute;
+        margin-left: 4%;
+        top: -95px;
+        height: 67px;
+        width: 90%;
+        /*overflow-y: scroll;*/
+    }
+    .quote-author{
+        position: absolute;
+        margin-left: 35%;
+        top: -15px;
+    }
+    
+}
+
+/*==========================desktop form factor=======================*/
+@media screen and (min-width: 960px) {
+    .book{
+        margin-top: 75px;
         margin-left: 10%;
     
     }
+/*these classes are added by the Javascript*/
     .trnsf{
         transform: translateX(250px);/*was 280px;*/
     }
@@ -240,6 +322,9 @@ img{
     position: absolute;
     align-items: center;
     top: 0;
+    /*left: 0;
+    right: 0;
+    margin: 0 auto;*/
     width: 100%;
 }
 
@@ -252,20 +337,34 @@ img{
     margin: auto;
 }
 
-.topics, .months{
-    position: relative;
+.topics, .days, .months{
+    /*position: relative;*/
     display: flex;
     justify-content: space-around;
     width: 100%;
-    margin: auto;
 }
 
 .topics{
-    right: 550px;
+    /*right: 550px;*/
+    margin-left: 10%;
+    margin-right: 50%;
+    order: 1;
+}
+
+.days{
+    /*display: flex;*/
+    order: 2;
+    margin-left: 100%;
+    margin-right: 50%
+    /*display: flex;
+    right: 50px;*/
 }
 
 .months{
-    left: 450px;
+    /*left: 450px;*/
+    margin-left: 90%;
+    margin-right: 10%;
+    order: 3;
 }
 
 .topics ul, .months ul{
@@ -287,7 +386,26 @@ img{
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
 }
 
-.topics li, .months li{
+.days ul{
+    position: absolute;
+    background: white;
+    margin-top: 10vh;
+    width: 1000px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    list-style: none;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: all .4s ease;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .2);
+}
+
+.topics li, .days li, .months li{
     
     width: 100%;
     height: 100%;
@@ -296,11 +414,11 @@ img{
     align-items: center;
 }
 
-.topics li:hover, .months li:hover{
+.topics li:hover, .days li:hover, .months li:hover{
     background-color: #a8f0f7;
 }
 
-.topics a, .months a{
+.topics a, .days a, .months a{
     color: black;
     text-decoration: none;
 }
@@ -315,6 +433,11 @@ img{
 }
 
 .topics button:focus + ul{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.days button:focus + ul{
     opacity: 1;
     pointer-events: all;
 }

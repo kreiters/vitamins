@@ -17,6 +17,7 @@ let sep = document.querySelectorAll('#sep');
 let oct = document.querySelectorAll('#oct');
 let nov = document.querySelectorAll('#nov');
 let dec = document.querySelectorAll('#dec');
+let quoteArea = document.querySelector('.quote-paragraph');
 
 document.getElementById('jan').addEventListener('click', function(event){
     console.log('jan selected');
@@ -66,6 +67,12 @@ for (var i = 0; i < book.length; i++) {
         }
         if (tgt.getAttribute('id') == 'lastPage') {
             flip.classList.add("trnsf-back");
+            let quoteSize = quoteArea.innerHTML.length;
+            console.log('quote page is ' + quoteSize + ' characters long');
+            if (quoteSize < 190) {
+                quoteArea.classList.remove("quote-paragraph");
+                quoteArea.classList.add("small-quote");
+            }
         }
         if (tgt.getAttribute('id') == 'front-back') {
             flip.classList.remove("trnsf-back");
